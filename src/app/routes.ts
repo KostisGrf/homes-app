@@ -8,7 +8,7 @@ const routeConfig:Routes=[{
     component:HomeComponent,
     title:'Home Page'
 },{
-    path:'details',
+    path:'details/:id',
     component:DetailsComponent,
     title:'Details Page'
 }];
