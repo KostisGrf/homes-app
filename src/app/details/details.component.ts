@@ -22,7 +22,7 @@ import { FormControl,FormGroup,ReactiveFormsModule } from '@angular/forms';
         <ul>
           <li>Units available: {{housingLocation?.availableUnits}}</li>
           <li>Does this location have wifi: {{housingLocation?.wifi}}</li>
-          <li>Does this location have wifi: {{housingLocation?.laundry}}</li>
+          <li>Does this location have laundry: {{housingLocation?.laundry}}</li>
         </ul>
       </section>
       <section class="listing-apply">

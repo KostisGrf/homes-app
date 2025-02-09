@@ -12,7 +12,7 @@ import { HousingService } from '../housing.service';
     <section>
       <form>
         <input type="text" placeholder="Filter by city" #filter>
-        <button class="primary" type="button" (click)="filterResults(filter.value)")>Search</button>
+        <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
       </form>
     </section>
       <section class="results">
@@ -30,17 +30,21 @@ export class HomeComponent {
 
 housingLocationList:Housinglocation[]=[];
 housingService:HousingService=inject(HousingService);
-filterLocationList:Housinglocation[]=[];
+filteredLocationList:Housinglocation[]=[];
 
 constructor(){
  this.housingService.getAllHousingLocations().then((housingLocationList: Housinglocation[])=>{
   this.housingLocationList=housingLocationList;
-  this.filterLocationList=housingLocationList;
+  this.filteredLocationList=housingLocationList;
  })
 }
 
 filterResults(text:string){
-  if(!text) this.filterLocationList=this.housingLocationList;
+  if(!text) this.filteredLocationList=this.housingLocationList;
+
+  this.filteredLocationList=this.housingLocationList.filter(
+    housingLocation=> housingLocation?.city.toLowerCase().includes(text.toLowerCase())
+  );
 }
 
 }
